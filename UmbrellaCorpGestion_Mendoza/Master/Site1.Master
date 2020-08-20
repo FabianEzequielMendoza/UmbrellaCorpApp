@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="UmbrellaCorpGestion_Mendoza.Master.Site1" %>
+
+<!DOCTYPE html>
+
+<html class="has-navbar-fixed-top has-background-black">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../Assets/Css/bulma.min.css" rel="stylesheet" />
+<link href="../Assets/Css/style.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title></title>
+  
+</head>
+<body>
+    <div class="columns">
+        <div class="column is-full">
+            <form runat="server" id="form1">
+                <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="../index.aspx">
+                            <img src="../Imagenes/umbrellaLogo.svg.png" class="image is-32x32" />
+                        </a>
+
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+
+                            <%-- Gestion de Usuarios --%>
+
+                            <div class="navbar-item has-dropdown is-hoverable is-mega">
+                                <div class="navbar-link">
+                                    Gestión de usuarios
+                                </div>
+                                <div class="navbar-dropdown " data-style="width: 18rem;">
+                                    <div class="container is-fluid">
+                                        <div class="columns ">
+                                            <div class="column">
+                                                <h1 class="menu-label is-size-7 has-text-weight-semibold">Mis Datos</h1>
+                                                <hr class="navbar-divider" />
+                                                <ul runat="server" id="gestionUsuarios" class="menu-list">
+                                                    <li><a runat="server" id="cambiarMail" class="navbar-item" href="#">Cambiar mi mail</a></li>
+                                                    <li><a runat="server" id="modificarContrasenia" class="navbar-item" href="#">Modificar mi contraseña</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="column">
+                                                <h1 class="menu-label is-size-7 has-text-weight-semibold is">Gestión general</h1>
+                                                <hr class="navbar-divider" />
+                                                <ul class="menu-list">
+                                                    <li><a id="altaUsuarios" class="navbar-item" href="../Usuarios/alta-usuarios.aspx">Alta de usuarios</a></li>
+                                                    <li><a id="consultaUsuarios" class="navbar-item" href="../Usuarios/consulta-usuarios.aspx">Consulta de usuarios</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <%-- Gestion de Usuarios--%>
+
+                            <%-- Gestion de Permisos--%>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">Gestión de permisos
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a id="verPermisos" class="navbar-item">Ver permisos
+                                    </a>
+                                    <a id="asignarPermisos" class="navbar-item">Asignar permisos
+                                    </a>
+                                </div>
+                            </div>
+
+                            <%-- Gestion de Permisos--%>
+
+                            <%-- Gestion de Materia Prima/ Proveedores--%>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">Gestión de mp/proveedores
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a id="altaProveedores" class="navbar-item">Alta de proveedores
+                                    </a>
+                                    <a id="consultaProveedores" class="navbar-item">Consulta de proveedores
+                                    </a>
+                                    <a id="altaMateriaPrima" class="navbar-item">Alta de materia prima para productos
+                                    </a>
+                                    <a id="consultaMateriaPrima" class="navbar-item">Consulta de materia prima
+                                    </a>
+                                </div>
+                            </div>
+
+                            <%-- Gestion de Materia Prima/ Proveedores--%>
+
+                            <%-- Gestion de Productos--%>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">Gestión de productos
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a id="altaProductos" class="navbar-item">Alta de productos
+                                    </a>
+                                    <a id="consultaProductos" class="navbar-item">Consulta de productos
+                                    </a>
+                                </div>
+                            </div>
+
+                            <%-- Gestion de Productos--%>
+
+                            <%-- Gestion de Ventas--%>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">Gestión de ventas
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a id="realizarVenta" class="navbar-item">Realizar venta
+                                    </a>
+                                    <a id="verVentasProceso" class="navbar-item">Ver ventas en procesos
+                                    </a>
+                                    <a id="verVentasRealizadas" class="navbar-item">Ver ventas realizadas
+                                    </a>
+                                    <a id="verVentasCanceladas" class="navbar-item">Ver ventas canceladas
+                                    </a>
+                                </div>
+                            </div>
+
+                            <%-- Gestion de Ventas--%>
+                        </div>
+                        <%--boton de salida y username--%>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+
+                                <p>
+                                    Bienvenido,
+                                <asp:Label class="has-text-centered pr-4" runat="server" ID="username" Text="user"></asp:Label>
+                                </p>
+
+
+                                <asp:Button class="button is-primary" ID="BtnSalir" runat="server" Text="Salir" OnClick="BtnSalir_Click" CausesValidation="False" />
+
+                            </div>
+                        </div>
+                    </div>
+                    <%--boton de salida y username--%>
+                </nav>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+                <div class="columns">
+                    <div class="column">
+                        <%--footer--%>
+                        <footer class="footer has-background-black">
+                            <div class="content has-text-centered">
+                                <p>
+                                    <a class="has-text-danger-dark" href="#">&copy; copyright 2020</a> <strong>.Todos los derechos reservados by </strong><a class="has-text-danger-dark" href="#">Fabian Mendoza</a>
+                                </p>
+                            </div>
+                            <div class="columns is-mobile is-centered">
+                                <div class="column is-half">
+                                    <hr class="has-background-danger-dark" />
+                                </div>
+                            </div>
+                        </footer>
+                        <%--footer--%>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="../Assets/Js/Main.js"></script>
+</body>
+</html>
