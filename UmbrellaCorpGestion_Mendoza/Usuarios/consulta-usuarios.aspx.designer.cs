@@ -69,6 +69,33 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
+        /// Control BtnDesvincular.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnDesvincular;
+
+        /// <summary>
+        /// Control BtnRestablecerCont.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnRestablecerCont;
+
+        /// <summary>
+        /// Control BtnModificarMail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnModificarMail;
+
+        /// <summary>
         /// Control Label1.
         /// </summary>
         /// <remarks>

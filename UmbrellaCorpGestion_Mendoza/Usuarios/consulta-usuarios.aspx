@@ -47,9 +47,22 @@
                         </asp:GridView>
                     </div>
                 </div>
+                <br />
+
+                <div class="buttons is-centered">
+                  
+                    <asp:Button ID="BtnDesvincular" CssClass="button is-info is-outlined" runat="server" Text="Desvincular" />                  
+                   
+                    <asp:Button ID="BtnRestablecerCont" CssClass="button is-info is-outlined" runat="server" Text="Restablecer contraseña" />
+
+                    <asp:Button ID="BtnModificarMail" CssClass="button is-info is-outlined" runat="server" Text="Modificar mail del usuario" />
+                    
+                </div>
+
                 <div class="has-text-danger-dark has-text-centered">
                     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                 </div>
+
                 <div class="columns my-3">
                     <div class="column has-text-centered">
                         <div class="field control">
