@@ -75,7 +75,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDesvincular;
+        protected global::System.Web.UI.HtmlControls.HtmlButton BtnDesvincular;
 
         /// <summary>
         /// Control BtnRestablecerCont.
@@ -84,7 +84,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnRestablecerCont;
+        protected global::System.Web.UI.HtmlControls.HtmlButton BtnRestablecerCont;
 
         /// <summary>
         /// Control BtnModificarMail.
@@ -93,7 +93,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnModificarMail;
+        protected global::System.Web.UI.HtmlControls.HtmlButton BtnModificarMail;
 
         /// <summary>
         /// Control Label1.
@@ -112,5 +112,68 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnCancelar;
+
+        /// <summary>
+        /// Control motivoDesv.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox motivoDesv;
+
+        /// <summary>
+        /// Control confirmarDesvinculacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmarDesvinculacion;
+
+        /// <summary>
+        /// Control cancelarDesvinculacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelarDesvinculacion;
+
+        /// <summary>
+        /// Control confirmarContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmarContrasenia;
+
+        /// <summary>
+        /// Control cancelarContrasenia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelarContrasenia;
+
+        /// <summary>
+        /// Control confirmarMail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button confirmarMail;
+
+        /// <summary>
+        /// Control cancelarMail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cancelarMail;
     }
 }

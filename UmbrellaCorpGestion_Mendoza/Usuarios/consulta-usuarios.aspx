@@ -24,7 +24,7 @@
                             <asp:TextBox class="input" type="text" ID="TextBox1" runat="server"></asp:TextBox>
                         </p>
                         <p class="control">
-                            <asp:Button class="button is-primary" ID="BtnBuscar" runat="server" Text="Buscar" OnClick="BtnBuscar_Click" />
+                            <asp:Button class="button is-info is-outlined" ID="BtnBuscar" runat="server" Text="Buscar" OnClick="BtnBuscar_Click" />
                         </p>
                     </div>
                     <div class="control">
@@ -40,10 +40,21 @@
                 </section>
                 <div class="table-container ml-4">
                     <div class="table is-bordered is-striped is-narrow is-hoverable ">
-                        <asp:GridView class="has-text-left " ID="GridView1" runat="server">
+                        <asp:GridView class="has-text-left " ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:CommandField InsertText="" NewText="" SelectText="&gt;&gt;" ShowSelectButton="True" UpdateText="" />
+                                <asp:CommandField SelectText="⪼⪼⪼" ShowSelectButton="True" />
                             </Columns>
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="white" Font-Bold="True"  />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
                     </div>
                 </div>
@@ -51,11 +62,9 @@
 
                 <div class="buttons is-centered">
                   
-                    <asp:Button ID="BtnDesvincular" CssClass="button is-info is-outlined" runat="server" Text="Desvincular" />                  
-                   
-                    <asp:Button ID="BtnRestablecerCont" CssClass="button is-info is-outlined" runat="server" Text="Restablecer contraseña" />
-
-                    <asp:Button ID="BtnModificarMail" CssClass="button is-info is-outlined" runat="server" Text="Modificar mail del usuario" />
+                    <button type="button" id="BtnDesvincular" runat="server" Class="button is-info is-outlined" visible="False" onclick = "javascript:DesvincularUsuario()">Desvincular</button>
+                    <button type="button" id="BtnRestablecerCont" runat="server" Class="button is-info is-outlined" visible="False" onclick = "javascript:RestablecerContrasenia()" >Restablecer contraseña</button>
+                    <button type="button" id="BtnModificarMail" runat="server" Class="button is-info is-outlined" visible="False" onclick = "javascript:ModificarMail()">Modificar mail del usuario</button>
                     
                 </div>
 
@@ -73,4 +82,90 @@
             </div>
         </div>
     </div>
+
+
+    <div class="modalDesvinculacion modal" id="modalDesvinculacion" >
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Desvinculación de recurso</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                ¿Estás seguro que quieres desvincular a este usuario?
+            </section>
+            <div class="is-centered px-3 pb-3" style="background-color:white;">
+                <asp:TextBox ID="motivoDesv" CssClass="input " runat="server" placeholder="Ingrese motivo de desvinculacion"></asp:TextBox>
+            </div>
+            
+            <footer class="modal-card-foot">
+                <asp:Button ID="confirmarDesvinculacion" runat="server" CssClass="button is-success" Text="Confirmar" OnClick="ConfirmarDesvinculacion_Click" />
+                <asp:Button ID="cancelarDesvinculacion" CssClass="button is-danger" runat="server" Text="Cancelar" OnClick="cancelarDesvinculacion_Click" />
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal" id="modalRestablecerContrasenia" >
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Restablecimiento de contraseña</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                ¿Estás seguro que quieres desvincular a este usuario?
+            </section>
+            <footer class="modal-card-foot">
+                <asp:Button ID="confirmarContrasenia" CssClass="button is-success" runat="server" Text="Confirmar" OnClick="ConfirmarContrasenia_Click" />
+                <asp:Button ID="cancelarContrasenia" CssClass="button is-danger" runat="server" Text="Cancelar" OnClick="cancelarContrasenia_Click" />
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal" id="modalModificarMail" >
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Cambio de mail</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                ¿Estás seguro que quieres restablecer la contraseña?
+                Al confirmar, se te enviará un mail con la confirmación.
+            </section>
+            <footer class="modal-card-foot">
+                <asp:Button ID="confirmarMail" CssClass="button is-success" runat="server" Text="Confirmar" OnClick="ConfirmarMail_Click"/>
+                <asp:Button ID="cancelarMail" CssClass="button is-danger" runat="server" Text="Cancelar" OnClick="cancelarMail_Click" />
+            </footer>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function DesvincularUsuario() {
+            var elemento = document.querySelectorAll("#modalDesvinculacion");
+            for (var i = 0; i < elemento.length; i++) {
+                elemento[i].classList.toggle("is-active");
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function ModificarMail() {
+            var elemento = document.querySelectorAll("#modalModificarMail");
+            for (var i = 0; i < elemento.length; i++) {
+                elemento[i].classList.toggle("is-active");
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function RestablecerContrasenia() {
+            var elemento = document.querySelectorAll("#modalRestablecerContrasenia");
+            for (var i = 0; i < elemento.length; i++) {
+                elemento[i].classList.toggle("is-active");
+            }
+        }
+    </script>
+
 </asp:Content>
+ 
