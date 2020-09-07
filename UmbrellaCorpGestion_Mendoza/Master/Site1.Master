@@ -45,7 +45,7 @@
                                                 <h1 class="menu-label is-size-7 has-text-weight-semibold">Mis Datos</h1>
                                                 <hr class="navbar-divider" />
                                                 <ul runat="server" id="gestionUsuarios" class="menu-list">
-                                                    <li><a runat="server" id="cambiarMail" class="navbar-item" href="#">Cambiar mi mail</a></li>
+                                                    <li><a runat="server" id="cambiarMail" class="navbar-item" href="../Usuarios/ModificarMiMail.aspx">Cambiar mi mail</a></li>
                                                     <li><a runat="server" id="modificarContrasenia" class="navbar-item" href="#">Modificar mi contraseña</a></li>
                                                 </ul>
                                             </div>

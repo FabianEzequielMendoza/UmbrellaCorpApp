@@ -24,7 +24,7 @@
                             <asp:TextBox class="input" type="text" ID="TextBox1" runat="server"></asp:TextBox>
                         </p>
                         <p class="control">
-                            <asp:Button class="button is-info is-outlined" ID="BtnBuscar" runat="server" Text="Buscar" OnClick="BtnBuscar_Click" />
+                            <asp:Button class="button is-info is-outlined" ID="BtnBuscar" runat="server" Text="Buscar" CausesValidation="false" OnClick="BtnBuscar_Click" />
                         </p>
                     </div>
                     <div class="control">
@@ -75,7 +75,7 @@
                 <div class="columns my-3">
                     <div class="column has-text-centered">
                         <div class="field control">
-                            <asp:Button Class="button is-medium is-danger " ID="BtnCancelar" runat="server" Text="Cancelar" PostBackUrl="~/index.aspx" />
+                            <asp:Button Class="button is-medium is-danger " ID="BtnCancelar" runat="server" Text="Cancelar" CausesValidation="false" PostBackUrl="~/index.aspx" />
                         </div>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                 <button class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                ¿Estás seguro que quieres desvincular a este usuario?
+                ¿Estás seguro que quieres restablecer la contraseña a este usuario?
             </section>
             <footer class="modal-card-foot">
                 <asp:Button ID="confirmarContrasenia" CssClass="button is-success" runat="server" Text="Confirmar" OnClick="ConfirmarContrasenia_Click" />
@@ -130,12 +130,15 @@
                 <button class="delete" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                ¿Estás seguro que quieres restablecer la contraseña?
-                Al confirmar, se te enviará un mail con la confirmación.
+                 <div class="is-centered px-3 pb-3" style="background-color:white;">
+                     <asp:TextBox ID="setMail" CssClass="input" runat="server" placeholder="Ingrese nuevo mail" TextMode="Email"></asp:TextBox>
+                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" Text="Debe colocar un Mail válido" ControlToValidate="setMail" ForeColor="Red" ValidationExpression="^[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"></asp:RegularExpressionValidator>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="setMail" ForeColor="Red">Campo obligatorio</asp:RequiredFieldValidator>
+                 </div>
             </section>
             <footer class="modal-card-foot">
-                <asp:Button ID="confirmarMail" CssClass="button is-success" runat="server" Text="Confirmar" OnClick="ConfirmarMail_Click"/>
-                <asp:Button ID="cancelarMail" CssClass="button is-danger" runat="server" Text="Cancelar" OnClick="cancelarMail_Click" />
+                <asp:Button ID="confirmarMail" CssClass="button is-success" runat="server" Text="Confirmar" CausesValidation="true" OnClick="ConfirmarMail_Click"/>
+                <asp:Button ID="cancelarMail" CssClass="button is-danger" runat="server" Text="Cancelar" CausesValidation="false" OnClick="cancelarMail_Click" />
             </footer>
         </div>
     </div>

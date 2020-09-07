@@ -60,14 +60,14 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                             conn.Close(); // CERRAMOS LA CONEXION
                             Label1.Text = "Se agregaron los registros correctamente.";
                         }
-                        catch (Exception ex)
+                        catch (Exception )
                         {
                             Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
                         }
 
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 

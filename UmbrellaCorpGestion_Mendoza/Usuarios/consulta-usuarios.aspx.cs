@@ -95,7 +95,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
 
         protected void ConfirmarDesvinculacion_Click(object sender, EventArgs e)
         {
-           
+  
             string query1 = @"UPDATE usuarios " +
                 "SET fechaDesvinculacion=(@fd), motivoDesv=(@md), activo =0" +
                 "WHERE username=(@user)";
@@ -113,8 +113,9 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
+                Label1.Text = "Se ha desvinculado al usuario "+user+" exitosamente";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 
@@ -126,12 +127,74 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
 
         protected void ConfirmarContrasenia_Click(object sender, EventArgs e) 
         {
-            Label1.Text = "borra";
+            //consultar username y mail del usuario
+            string username = GridView1.SelectedRow.Cells[1].Text;
+            string mail= GridView1.SelectedRow.Cells[2].Text;
+
+            //actualizar password
+            string query = @"UPDATE usuarios " +
+                "SET pass=(@pw)" +
+                "WHERE username=(@user)";
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
+
+            try
+            {
+                SqlCommand command = new SqlCommand(query, conn); // CREAMOS EL COMANDO SQL A EJECUTAR
+                
+                string passwordRandom = GenerarRandom();
+
+                EnviarMail.EnviarContraseniaAlCorreo(mail,passwordRandom,Label1);
+
+                passwordRandom = Encriptar.ConvertiraHash(passwordRandom);
+
+                command.Parameters.AddWithValue("pw", passwordRandom);
+                command.Parameters.AddWithValue("user", username);
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+
+                Label1.Text = "Se ha cambiado la contraseña exitosamente";
+            }
+            catch (Exception)
+            {
+                Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
+
+            }
+
+           
         }
 
         protected void ConfirmarMail_Click(object sender, EventArgs e)
         {
-            Label1.Text = "borras";
+            //username del usuario
+            string username = GridView1.SelectedRow.Cells[1].Text;
+
+            //actualizar mail
+            string query = @"UPDATE usuarios " +
+                "SET mail=(@mail)" +
+                "WHERE username=(@user)";
+
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
+
+            try
+            {
+                SqlCommand command = new SqlCommand(query, conn); // CREAMOS EL COMANDO SQL A EJECUTAR
+
+                command.Parameters.AddWithValue("mail", setMail.Text);
+                command.Parameters.AddWithValue("user", username);
+                conn.Open();
+                command.ExecuteNonQuery();
+                conn.Close();
+
+                Label1.Text = "Se ha cambiado el mail exitosamente";
+            }
+            catch (Exception)
+            {
+                Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
+
+            }
+
         }
 
         protected void cancelarDesvinculacion_Click(object sender, EventArgs e)
@@ -148,5 +211,21 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
         {
             Visibilidad_de_botones_off();
         }
+        private string GenerarRandom()
+        {
+            Random obj = new Random(); //Metodo Random para obtener un caracter aleatoriamente
+            string posibles = "0123456789"; // Caracteres posibles para el random
+            int longitud = posibles.Length; //Largo del string
+            char letra;
+            int longitudnuevacadena = 6;//Largo de la cadena aleatoria
+            string nuevacadena = "";
+            for (int i = 0; i < longitudnuevacadena; i++)
+            {
+                letra = posibles[obj.Next(longitud)];
+                nuevacadena += letra.ToString();
+            }
+            return nuevacadena;
+        }
+
     }
 }

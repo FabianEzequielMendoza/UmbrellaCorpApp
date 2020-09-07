@@ -86,10 +86,12 @@
     <Content Include="recuperarPass.aspx" />
     <Content Include="Usuarios\alta-usuarios.aspx" />
     <Content Include="Usuarios\consulta-usuarios.aspx" />
+    <Content Include="Usuarios\ModificarMiMail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClasesCustom\Encriptar.cs" />
+    <Compile Include="ClasesCustom\EnviarMail.cs" />
     <Compile Include="ClasesCustom\SQL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -136,6 +138,13 @@
     </Compile>
     <Compile Include="Usuarios\consulta-usuarios.aspx.designer.cs">
       <DependentUpon>consulta-usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\ModificarMiMail.aspx.cs">
+      <DependentUpon>ModificarMiMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\ModificarMiMail.aspx.designer.cs">
+      <DependentUpon>ModificarMiMail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
