@@ -70,6 +70,7 @@ namespace UmbrellaCorpGestion_Mendoza
             string query = "SELECT mail FROM Usuarios WHERE username='" + usuario + "'";
             int count = 0;
             string mail = "";
+            bool miB = true;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
 
@@ -94,6 +95,7 @@ namespace UmbrellaCorpGestion_Mendoza
                     else
                     {
                         Label1.Text = "No se encontraron resultados";
+                       
                     }
                     conn.Close();
 
@@ -101,6 +103,7 @@ namespace UmbrellaCorpGestion_Mendoza
                 else
                 {
                     Label1.Text = "Usuario incorrecto, por favor comuníquese con su administrador.";
+                    miB = false;
                 }
 
             }
@@ -110,40 +113,42 @@ namespace UmbrellaCorpGestion_Mendoza
                 Label1.Text = "Se ha producido un error inesperado, por favor comuníquese con su administrador.";
             }
 
-            // consultar username y mail del usuario
-            //string username = TBUsuario.Text;
-
-            //actualizar password
-            string queryActualizarPass = @"UPDATE usuarios " +
-                "SET pass=(@pw)" +
-                "WHERE username=(@user)";
-
-            SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
-
-            try
+            if (miB)
             {
-                SqlCommand command = new SqlCommand(queryActualizarPass, conn2); // CREAMOS EL COMANDO SQL A EJECUTAR
+                //actualizar password
+                string queryActualizarPass = @"UPDATE usuarios " +
+                    "SET pass=(@pw)" +
+                    "WHERE username=(@user)";
 
-                string passwordRandom = GenerarRandom();
+                SqlConnection conn2 = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
 
-                EnviarMail.EnviarContraseniaAlCorreo(mail, passwordRandom, Label1);
+                try
+                {
+                    SqlCommand command = new SqlCommand(queryActualizarPass, conn2); // CREAMOS EL COMANDO SQL A EJECUTAR
 
-                passwordRandom = Encriptar.ConvertiraHash(passwordRandom);
+                    string passwordRandom = GenerarRandom();
 
-                command.Parameters.AddWithValue("pw", passwordRandom);
-                command.Parameters.AddWithValue("user", usuario);
-                conn2.Open();
-                command.ExecuteNonQuery();
-                conn2.Close();
+                    EnviarMail.EnviarContraseniaAlCorreo(mail, passwordRandom, Label1);
 
-                
+                    passwordRandom = Encriptar.ConvertiraHash(passwordRandom);
+
+                    command.Parameters.AddWithValue("pw", passwordRandom);
+                    command.Parameters.AddWithValue("user", usuario);
+                    conn2.Open();
+                    command.ExecuteNonQuery();
+                    conn2.Close();
+
+
+                }
+                catch (Exception)
+                {
+                    Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
+
+
+                }
             }
-            catch (Exception)
-            {
-                Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
-
-                //}
-            }
+                    
+            
 
         }
 
