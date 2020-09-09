@@ -110,6 +110,8 @@ namespace UmbrellaCorpGestion_Mendoza
                 Label1.Text = "Se ha producido un error inesperado, por favor comuníquese con su administrador.";
             }
 
+            // consultar username y mail del usuario
+            //string username = TBUsuario.Text;
 
             //actualizar password
             string queryActualizarPass = @"UPDATE usuarios " +
