@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -25,13 +26,15 @@ namespace UmbrellaCorpGestion_Mendoza.ClasesCustom
                     GridView1.DataBind();
                     if (da.Fill(ds) == 0)
                     {
+                        Label1.ForeColor = Color.Red;
                         Label1.Text = "No se encontraron resultados";
                     }
                 }
             }
             catch (Exception ex)
             {
-                Label1.Text = ex.Message;
+                Label1.ForeColor = Color.Red;
+                Label1.Text = "Error inesperado";
 
             }
         }

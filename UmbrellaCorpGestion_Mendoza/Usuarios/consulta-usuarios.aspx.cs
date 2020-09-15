@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Web;
@@ -75,6 +76,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
             }
             else
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Debe elegir una opción en usuario activo o no activo";
             }
 
@@ -113,10 +115,12 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
+                Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha desvinculado al usuario "+user+" exitosamente";
             }
             catch (Exception)
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 
             }
@@ -154,10 +158,12 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 command.ExecuteNonQuery();
                 conn.Close();
 
+                Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha cambiado la contraseña exitosamente";
             }
             catch (Exception)
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 
             }
@@ -187,6 +193,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 command.ExecuteNonQuery();
                 conn.Close();
 
+                Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha cambiado el mail exitosamente";
             }
             catch (Exception)

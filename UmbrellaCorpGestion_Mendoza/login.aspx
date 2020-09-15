@@ -46,12 +46,15 @@
                     <div class="has-text-centered">
                         <asp:Button class="button is-vcentered is-danger is-outlined" ID="BtnEntrar" runat="server" Text="Entrar" OnClick="BtnEntrar_Click" CausesValidation="False" />
                     </div>
+
+                    <div class="has-text-centered">
+                        <a onclick="javascript:RestablecerContrasenia()" href="#"><span class="is-link">¿No recuerdas la contraseña? Entrá aquí!</span></a>
+                    </div>
+                    
                     <div class="has-text-danger-dark has-text-centered">
                         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>
-                    <div class="has-text-centered">
-                        <a onclick="javascript:RestablecerContrasenia()" href="#"><span style="color:darkred">¿No recuerdas la contraseña? Entrá aquí!</span></a>
-                    </div>
+                    
                 </section>
             </div>
             <div id="particles-js" class="interactive-bg column is-8">

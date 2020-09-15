@@ -85,7 +85,7 @@
                                 </a>
 
                                 <div class="navbar-dropdown">
-                                    <a id="altaProveedores" class="navbar-item">Alta de proveedores
+                                    <a id="altaProveedores" class="navbar-item" href="../MaterialProveedores/AltaProveedores.aspx">Alta de proveedores
                                     </a>
                                     <a id="consultaProveedores" class="navbar-item">Consulta de proveedores
                                     </a>

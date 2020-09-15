@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -58,10 +59,12 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                             command.ExecuteNonQuery(); // EJECUTAMOS EL COMANDO DEFINITIVO
                             command2.ExecuteNonQuery(); // EJECUTAMOS EL COMANDO DEFINITIVO
                             conn.Close(); // CERRAMOS LA CONEXION
+                            Label1.ForeColor = Color.Green;
                             Label1.Text = "Se agregaron los registros correctamente.";
                         }
                         catch (Exception )
                         {
+                            Label1.ForeColor = Color.Red;
                             Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
                         }
 
@@ -69,12 +72,14 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 }
                 catch (Exception)
                 {
+                    Label1.ForeColor = Color.Red;
                     Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 
                 }
             }
             else
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Por favor, volvé a verificar las contraseñas";
             }
             

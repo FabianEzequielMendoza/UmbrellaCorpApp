@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Threading;
 using System.Web;
@@ -63,11 +64,13 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                             command.ExecuteNonQuery();
                             conn2.Close();
 
+                            Label1.ForeColor = Color.Green;
                             Label1.Text = "Se ha cambiado la contraseña exitosamente";
 
                         }
                         catch (Exception)
                         {
+                            Label1.ForeColor = Color.Red;
                             Label1.Text = "Se produjo un error inesperado";
                         }
 
@@ -75,16 +78,19 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                     }
                     else
                     {
+                        Label1.ForeColor = Color.Red;
                         Label1.Text ="Contraseña actual incorrecta";
                     }
                 }
                 catch
                 {
+                    Label1.ForeColor = Color.Red;
                     Label1.Text = "Se produjo un error inesperado";
                 }
             }
             else
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Por favor, volvé a verificar las contraseñas";
             }
 

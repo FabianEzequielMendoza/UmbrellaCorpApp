@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -46,6 +47,7 @@ namespace UmbrellaCorpGestion_Mendoza
 
                     if (countDevolucion == 0)
                     {
+                        Label1.ForeColor = Color.Red;
                         Label1.Text = "Usuario o contraseña incorrecta";
                     }
                     else
@@ -59,6 +61,7 @@ namespace UmbrellaCorpGestion_Mendoza
             }
             catch (Exception)
             {
+                Label1.ForeColor = Color.Red;
                 Label1.Text = "Se produjo un error inesperado.";
             }
         }
@@ -94,6 +97,7 @@ namespace UmbrellaCorpGestion_Mendoza
                     }
                     else
                     {
+                        Label1.ForeColor = Color.Red;
                         Label1.Text = "No se encontraron resultados";
                        
                     }
@@ -102,6 +106,7 @@ namespace UmbrellaCorpGestion_Mendoza
                 }
                 else
                 {
+                    Label1.ForeColor = Color.Red;
                     Label1.Text = "Usuario incorrecto, por favor comuníquese con su administrador.";
                     miB = false;
                 }
@@ -142,6 +147,7 @@ namespace UmbrellaCorpGestion_Mendoza
                 }
                 catch (Exception)
                 {
+                    Label1.ForeColor = Color.Red;
                     Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 
 
