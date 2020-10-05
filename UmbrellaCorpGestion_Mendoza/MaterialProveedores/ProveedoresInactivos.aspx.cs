@@ -67,7 +67,6 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
                 conn.Close();
                 Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha activado al proveedor exitosamente";
-                GridView1.DataBind();
             }
             catch (Exception)
             {
