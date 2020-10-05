@@ -106,6 +106,7 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
                 conn.Close();
                 Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha inactivado al proveedor exitosamente";
+                GridView1.DataBind();
             }
             catch (Exception)
             {
@@ -138,16 +139,16 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
                 SqlCommand command = new SqlCommand(query, conn); // CREAMOS EL COMANDO SQL A EJECUTAR
 
                 command.Parameters.AddWithValue("CUIT", TBCuit.Text);
-                command.Parameters.AddWithValue("certificado", chkCertificado.ToString());
+                command.Parameters.AddWithValue("cert", chkCertificado.ToString());
                 command.Parameters.AddWithValue("Id", GridView1.SelectedRow.Cells[1].Text);
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();
-
                 Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha editado al proveedor exitosamente";
+                GridView1.DataBind();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 Label1.Text = "Se ha producido un error inesperado, volvé a intentarlo más tarde";
 

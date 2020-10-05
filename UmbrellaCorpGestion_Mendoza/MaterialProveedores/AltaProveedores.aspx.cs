@@ -22,13 +22,13 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
             string query1 = @"INSERT INTO Proveedores (razonsocial,CUIT,certificado,activo)
                             VALUES (@TB1,@TB2,@TB3,@TB4)";
             string queryValidar = @"SELECT * FROM Proveedores WHERE razonsocial LIKE @TB1";
-            byte chkCertValue=0;
+            bool chkCertValue = false;
 
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());// ESTABLECEMOS LA CONEXION
 
             if (chkCertificado.Checked)
             {
-                chkCertValue = 1;
+                chkCertValue = true;
             }
 
             try
@@ -52,8 +52,8 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
                         SqlCommand command = new SqlCommand(query1, conn); // CREAMOS EL COMANDO SQL A EJECUTAR
                         command.Parameters.AddWithValue("TB1", TBRazonSocial.Text);
                         command.Parameters.AddWithValue("TB2", TBCuit.Text);
-                        command.Parameters.AddWithValue("TB3", chkCertValue);
-                        command.Parameters.AddWithValue("TB4", 1);
+                        command.Parameters.AddWithValue("TB3", chkCertValue.ToString()) ;
+                        command.Parameters.AddWithValue("TB4", "True");
                         conn.Open();//ABRIMOS LA CONEXION
                         command.ExecuteNonQuery(); // EJECUTAMOS EL COMANDO DEFINITIVO
                         conn.Close(); // CERRAMOS LA CONEXION

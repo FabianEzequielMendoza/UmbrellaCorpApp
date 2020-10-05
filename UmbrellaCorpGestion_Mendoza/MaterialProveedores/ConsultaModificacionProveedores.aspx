@@ -95,6 +95,7 @@
                  <div class="is-centered px-3 pb-3" style="background-color:white;">
                      <asp:Label ID="Label2" runat="server" Text="Razon Social"></asp:Label>
                      <asp:TextBox ID="TBRazonSocial" CssClass="input" runat="server" Enabled="True" ReadOnly="True"></asp:TextBox>
+                     <asp:Label ID="Label3" runat="server" Text="CUIT"></asp:Label>
                      <asp:TextBox ID="TBCuit" CssClass="input" runat="server" placeholder="Ingrese nuevo CUIT"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="" ControlToValidate="TBCuit" ForeColor="Red" SetFocusOnError="true">Campo requerido</asp:RequiredFieldValidator>
                      <div>
