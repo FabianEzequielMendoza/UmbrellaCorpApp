@@ -66,7 +66,6 @@
                     <div class="has-text-danger-dark has-text-centered">
                         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>
-
                     
                 </section>
             </div>

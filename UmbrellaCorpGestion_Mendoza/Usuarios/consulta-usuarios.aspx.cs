@@ -73,6 +73,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 "FROM usuarios " +
                 "WHERE " + filtroDDL + " LIKE '%" + busqueda + "%' "+activo;
                 SQL.Establecer_Consulta_GridView(query, GridView1, Label1);
+                
             }
             else
             {
@@ -117,6 +118,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
                 conn.Close();
                 Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha desvinculado al usuario "+user+" exitosamente";
+                GridView1.DataBind();
             }
             catch (Exception)
             {
@@ -160,6 +162,7 @@ namespace UmbrellaCorpGestion_Mendoza.Usuarios
 
                 Label1.ForeColor = Color.Green;
                 Label1.Text = "Se ha cambiado la contraseña exitosamente";
+              
             }
             catch (Exception)
             {

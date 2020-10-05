@@ -15,15 +15,16 @@
                     <div class="field">
                         <label class="label">Razon Social:</label>
                         <div class="control">
-                            <asp:TextBox class="input" type="text" ID="TBRazonSocial" runat="server"  ></asp:TextBox>
+                            <asp:TextBox class="input" ID="TBRazonSocial" type="number" runat="server"  ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="" ControlToValidate="TBRazonSocial" ForeColor="Red" SetFocusOnError="True">* Campo requerido</asp:RequiredFieldValidator>
+
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">CUIT</label>
                         <div class="control">
-                            <asp:TextBox class="input" ID="TBCuit" type="password" runat="server" ></asp:TextBox>
+                            <asp:TextBox class="input" ID="TBCuit" type="number" runat="server" ></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="" ControlToValidate="TBCuit" ForeColor="Red" SetFocusOnError="true">* Campo requerido</asp:RequiredFieldValidator>
                         </div>
                     </div>

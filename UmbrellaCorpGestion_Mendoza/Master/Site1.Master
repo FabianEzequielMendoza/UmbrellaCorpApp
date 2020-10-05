@@ -87,7 +87,7 @@
                                 <div class="navbar-dropdown">
                                     <a id="altaProveedores" class="navbar-item" href="../MaterialProveedores/AltaProveedores.aspx">Alta de proveedores
                                     </a>
-                                    <a id="consultaProveedores" class="navbar-item">Consulta de proveedores
+                                    <a id="consultaProveedores" class="navbar-item" href="../MaterialProveedores/ConsultaModificacionProveedores.aspx">Consulta de proveedores
                                     </a>
                                     <a id="altaMateriaPrima" class="navbar-item">Alta de materia prima para productos
                                     </a>
