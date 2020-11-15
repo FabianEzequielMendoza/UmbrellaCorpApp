@@ -83,7 +83,7 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Visibilidad_de_botones_on();
-            TBRazonSocial.Text = GridView1.SelectedRow.Cells[1].Text; 
+            TBRazonSocial.Text = GridView1.SelectedDataKey.Values["Razon_Social"].ToString(); 
         }
 
         protected void BtnInactivar_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
             try
             {
                 SqlCommand command = new SqlCommand(query1, conn); // CREAMOS EL COMANDO SQL A EJECUTAR
-                command.Parameters.AddWithValue("Id", GridView1.SelectedRow.Cells[1].Text);
+                command.Parameters.AddWithValue("Id", GridView1.SelectedDataKey.Values["ID"].ToString());
 
                 conn.Open();
                 command.ExecuteNonQuery();
@@ -139,7 +139,7 @@ namespace UmbrellaCorpGestion_Mendoza.MaterialProveedores
 
                 command.Parameters.AddWithValue("CUIT", TBCuit.Text);
                 command.Parameters.AddWithValue("cert", chkCertificado.ToString());
-                command.Parameters.AddWithValue("Id", GridView1.SelectedRow.Cells[1].Text);
+                command.Parameters.AddWithValue("Id", GridView1.SelectedDataKey.Values["ID"].ToString());
                 conn.Open();
                 command.ExecuteNonQuery();
                 conn.Close();

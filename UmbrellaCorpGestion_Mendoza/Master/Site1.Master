@@ -89,9 +89,9 @@
                                     </a>
                                     <a id="consultaProveedores" class="navbar-item" href="../MaterialProveedores/ConsultaModificacionProveedores.aspx">Consulta de proveedores
                                     </a>
-                                    <a id="altaMateriaPrima" class="navbar-item">Alta de materia prima para productos
+                                    <a id="altaMateriaPrima" class="navbar-item" href="../MaterialProveedores/AltaMateriaPrima.aspx">Alta de materia prima para productos
                                     </a>
-                                    <a id="consultaMateriaPrima" class="navbar-item">Consulta de materia prima
+                                    <a id="consultaMateriaPrima" class="navbar-item" href="../MaterialProveedores/ConsultaModificacionMateriaPrima.aspx">Consulta de materia prima
                                     </a>
                                 </div>
                             </div>
@@ -104,9 +104,9 @@
                                 </a>
 
                                 <div class="navbar-dropdown">
-                                    <a id="altaProductos" class="navbar-item">Alta de productos
+                                    <a id="altaProductos" class="navbar-item" href="../Productos/AltaProducto.aspx">Alta de productos
                                     </a>
-                                    <a id="consultaProductos" class="navbar-item">Consulta de productos
+                                    <a id="consultaProductos" class="navbar-item" href="../Productos/ConsultaModificacionProducto.aspx">Consulta de productos
                                     </a>
                                 </div>
                             </div>
@@ -119,13 +119,13 @@
                                 </a>
 
                                 <div class="navbar-dropdown">
-                                    <a id="realizarVenta" class="navbar-item">Realizar venta
+                                    <a id="realizarVenta" class="navbar-item" href="../Ventas/VentaProducto.aspx">Realizar venta
                                     </a>
-                                    <a id="verVentasProceso" class="navbar-item">Ver ventas en procesos
+                                    <a id="verVentasProceso" href="../Ventas/VentasEnProceso.aspx" class="navbar-item">Ver ventas en procesos
                                     </a>
-                                    <a id="verVentasRealizadas" class="navbar-item">Ver ventas realizadas
+                                    <a id="verVentasRealizadas" href="../Ventas/VentasRealizadas.aspx" class="navbar-item">Ver ventas realizadas
                                     </a>
-                                    <a id="verVentasCanceladas" class="navbar-item">Ver ventas canceladas
+                                    <a id="verVentasCanceladas" href="../Ventas/VentasCanceladas.aspx" class="navbar-item">Ver ventas canceladas
                                     </a>
                                 </div>
                             </div>

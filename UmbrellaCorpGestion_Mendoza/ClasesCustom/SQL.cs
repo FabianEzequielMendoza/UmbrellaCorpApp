@@ -38,5 +38,6 @@ namespace UmbrellaCorpGestion_Mendoza.ClasesCustom
 
             }
         }
+
     }
 }

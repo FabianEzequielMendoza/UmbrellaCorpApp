@@ -36,20 +36,16 @@
                     <div class="field is-grouped is-grouped-centered">
 
                         <asp:Button class="button is-medium is-vcentered is-primary mr-4" ID="BtnRegistrar" runat="server" Text="Registrar" CausesValidation="true" OnClick="BtnRegistrar_Click"  />
-                        <asp:Button class="button is-medium is-vcentered is-danger ml-4" ID="BtnCancerlar" runat="server" Text="Cancelar" CausesValidation="false" PostBackUrl="~/index.aspx" OnClick="BtnCancerlar_Click" />
+                        <asp:Button class="button is-medium is-vcentered is-danger ml-4" ID="BtnCancelar" runat="server" Text="Cancelar" CausesValidation="false" PostBackUrl="~/index.aspx" OnClick="BtnCancelar_Click" />
                     </div>
                     
                     <div class="has-text-danger-dark has-text-centered">
                         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                     </div>
-
-                    
+          
                 </section>
             </div>
         </div>
     </div>
-
-
-
 
 </asp:Content>

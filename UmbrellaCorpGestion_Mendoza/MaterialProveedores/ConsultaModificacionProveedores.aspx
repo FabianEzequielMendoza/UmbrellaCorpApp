@@ -42,7 +42,7 @@
                     
                 <div class="table-container ml-4">
                     <div class="table is-bordered is-striped is-narrow is-hoverable ">
-                        <asp:GridView class="has-text-left " ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True">
+                        <asp:GridView class="has-text-left " ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" DataKeyNames="ID,Razon_Social">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
                                 <asp:CommandField SelectText="⪼⪼⪼" ShowSelectButton="True" />
